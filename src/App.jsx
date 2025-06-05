@@ -87,7 +87,7 @@ function App() {
         });
 
         gsap.to(".model", {
-        scale: 1.3,
+        scale: 1.2,
         x: "-5%",
         bottom: "-25%",
         rotate: 0,
@@ -117,7 +117,8 @@ function App() {
 
     },[showContent])
   return (
-    <>
+    <>  
+    <div className='noselect'>
     <div className="svg flex items-center justify-center fixed top-0 left-0 z-[100] w-full h-screen overflow-hidden bg-[#000]">
         <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
           <defs>
@@ -214,6 +215,7 @@ function App() {
         </div>     
     </div> 
     }
+    </div>
     </>
   );
   

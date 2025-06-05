@@ -31,3 +31,16 @@ pre {
 code {
   font-size: 0.95rem;
 }
+/* Prevent all user selection */
+body, img, * {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none; /* For Safari/Chrome */
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  -user-drag: none;
+}
+
