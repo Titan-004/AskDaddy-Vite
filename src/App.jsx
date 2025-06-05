@@ -87,7 +87,7 @@ function App() {
         });
 
         gsap.to(".model", {
-        scale: 1.2,
+        scale: 1.3,
         x: "-5%",
         bottom: "-25%",
         rotate: 0,
@@ -161,7 +161,7 @@ function App() {
                     <h1 className="text text-9xl leading-none -ml-40">almighty</h1>
                     <h1 className="text text-9xl leading-none -ml-80">daddy</h1>
                 </div>text 
-                <img className="absolute model -bottom-[150%] left-1/2 -translate-x-1/2  scale-[3] w-[700px] rotate-[-20deg]" src="./model.png" alt="" />
+                <img className="absolute model -bottom-[150%] left-1/2 -translate-x-1/2  scale-[5] w-[700px] rotate-[-20deg]" src="./model.png" alt="" />
             </div>  
             <div className="btmbar absolute bottom-0 left-0 w-full py-10 px-10 bg-gradient-to-t from-black to-transparent ">
                 <div className="flex items-center justify-between w-full px-10">
