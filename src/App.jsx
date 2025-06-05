@@ -15,11 +15,14 @@ function App() {
         setLoading(true);
         setResponse(null);
         try {
-        const res = await fetch('http://localhost:8080/ai/qna/ask', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ question }),
+        const res = await fetch('https://ask-daddy.onrender.com/ai/qna/ask', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ question }),
         });
+
 
         if (!res.ok) throw new Error("Server error");
 
