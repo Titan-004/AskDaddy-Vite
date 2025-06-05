@@ -58,7 +58,7 @@ function App() {
             transformOrigin: "50% 50%",
             opacity: 0,
             onUpdate: function(){
-                if(this.progress()>=.9){
+                if(this.progress()>=.5){
                 document.querySelector(".svg").style.display = "none";
                     setShowContent(true);
                     this.kill();
