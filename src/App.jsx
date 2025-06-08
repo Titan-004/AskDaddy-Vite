@@ -8,6 +8,19 @@ import ChatInput from "./Components/ChatInput";
  
 
 function App() {
+
+    const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+
+        React.useEffect(() => {
+        const handleResize = () => {
+            setIsDesktop(window.innerWidth >= 1024);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+        }, []);
+
+
     const [response, setResponse] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -58,7 +71,7 @@ function App() {
             transformOrigin: "50% 50%",
             opacity: 0,
             onUpdate: function(){
-                if(this.progress()>=.5){
+                if(this.progress()>=.6){
                 document.querySelector(".svg").style.display = "none";
                     setShowContent(true);
                     this.kill();
@@ -116,9 +129,16 @@ function App() {
         })
 
     },[showContent])
-  return (
-    <>  
-    <div className='noselect'>
+ return (
+  <>
+    {!isDesktop ? (
+      <div className="w-full h-screen bg-black text-white flex items-center justify-center text-center p-10">
+        <h1 className="text-2xl sm:text-4xl font-bold">This experience is available on desktop only. Please switch to a PC or larger screen.</h1>
+      </div>
+    ) : (
+      // Keep your original JSX content here
+     
+        <div className='noselect'>
     <div className="svg flex items-center justify-center fixed top-0 left-0 z-[100] w-full h-screen overflow-hidden bg-[#000]">
         <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
           <defs>
@@ -205,19 +225,22 @@ function App() {
                 
             </div>
             {response && (
-  <div className="response-container w-full min-h-screen px-10 py-20 bg-black text-white flex justify-center items-start">
-    <div className="card w-full max-w-8xl rounded-2xl p-8 shadow-[0_0_60px_#2bccb444] bg-gradient-to-b from-[#141414] via-[#1b1b1b] to-[#000000] border border-[#2bccb4]/20">
-      <ChatResponse response={response} />
-    </div>
-  </div>
-)}
+            <div className="response-container w-full min-h-screen px-10 py-20 bg-black text-white flex justify-center items-start">
+                <div className="card w-full max-w-8xl rounded-2xl p-8 shadow-[0_0_60px_#2bccb444] bg-gradient-to-b from-[#141414] via-[#1b1b1b] to-[#000000] border border-[#2bccb4]/20">
+                <ChatResponse response={response} />
+                </div>
+            </div>
+            )}
 
         </div>     
     </div> 
     }
     </div>
-    </>
-  );
+      
+    )}
+  </>
+);
+
   
 }
 
